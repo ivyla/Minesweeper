@@ -21,9 +21,9 @@ void setup ()
     
     for(int i = 0; i < NUM_ROWS; i++){
     
-      for(int j = 0; i < NUM_COLS; j++){
+      for(int j = 0; j < NUM_COLS; j++){
       
-      //needs to add to the arrays?
+      buttons[i][j] = new MSButton(i,j);
       
       }
     
@@ -32,7 +32,12 @@ void setup ()
 }
 public void setBombs()
 {
-    //your code
+    int row,col;
+    row=(int)(Math.random()*20);
+    col=(int)(Math.random()*20);
+    if(bombs.contains(buttons[row][col])){
+      bombs.add(buttons[row][col]);
+    }
 }
 
 public void draw ()
@@ -64,8 +69,8 @@ public class MSButton
     
     public MSButton ( int rr, int cc )
     {
-        // width = 400/NUM_COLS;
-        // height = 400/NUM_ROWS;
+         width = 400/NUM_COLS;
+         height = 400/NUM_ROWS;
         r = rr;
         c = cc; 
         x = c*width;
@@ -94,8 +99,8 @@ public class MSButton
     {    
         if (marked)
             fill(0);
-        // else if( clicked && bombs.contains(this) ) 
-        //     fill(255,0,0);
+         else if( clicked && bombs.contains(this) ) 
+            fill(255,0,0);
         else if(clicked)
             fill( 200 );
         else 
