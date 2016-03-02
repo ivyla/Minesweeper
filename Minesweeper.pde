@@ -33,7 +33,7 @@ public void setBombs()
     row=(int)(Math.random()*19);
     col=(int)(Math.random()*19);
     if(bombs.contains(buttons[row][col]) == false){
-      bombs.add(buttons[row][col]);
+      buttons.add(bombs[row][col]);
     }
    
 }
