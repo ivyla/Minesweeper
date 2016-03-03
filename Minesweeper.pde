@@ -4,6 +4,7 @@ public final static int NUM_COLS = 20;
 private MSButton[][] buttons; //2d array of minesweeper buttons
 private ArrayList <MSButton> bombs = new ArrayList <MSButton>(); //ArrayList of just the minesweeper buttons that are mined
 
+
 void setup ()
 {
     size(400, 400);
@@ -14,7 +15,7 @@ void setup ()
     
    buttons = new MSButton[NUM_ROWS][NUM_COLS];
     
-    setBombs();
+   
     
     for(int i = 0; i < NUM_ROWS; i++){
     
@@ -23,17 +24,19 @@ void setup ()
       buttons[i][j] = new MSButton(i,j);
       
       }
-    
-    
     }
+     setBombs();
 }
 public void setBombs()
 {
     int row,col;
-    row=(int)(Math.random()*19);
-    col=(int)(Math.random()*19);
+    
+    for(int i = 0; i < 200; i++){
+     row=(int)(Math.random()*20);
+    col=(int)(Math.random()*20);
     if(bombs.contains(buttons[row][col]) == false){
-      buttons.add(bombs[row][col]);
+      bombs.add(buttons[row][col]);
+    }
     }
    
 }
