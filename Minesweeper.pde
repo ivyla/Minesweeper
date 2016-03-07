@@ -29,7 +29,7 @@ public void setBombs()
 {
     int row,col;
     
-    for(int i = 0; i < 30; i++){
+    for(int i = 0; i < 100; i++){
      row=(int)(Math.random()*20);
     col=(int)(Math.random()*20);
     if(bombs.contains(buttons[row][col]) == false){
@@ -115,16 +115,28 @@ public class MSButton
     }
     public boolean isValid(int r, int c)
     {
-         if (r >= 0 && r <= 9 && c <= 9 && c >= 0) 
+         if (r >= 0 && r <= 9 && c <= 9 && c >= 0) {
       return true;
+         } else {
     
         return false;
+         }
     
   }
     public int countBombs(int row, int col)
     {
         int numBombs = 0;
         //your code here
+        for(int i = 0; i < NUM_COLS; i++){
+          for(int j = 0; i < NUM_ROWS; j++){
+          if(bombs.contains(buttons[i][j]) == true){
+          
+            numBombs++;
+          }
+          
+          }
+        
+        } 
         return numBombs;
     }
 }
